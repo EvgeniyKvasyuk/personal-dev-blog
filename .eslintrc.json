@@ -1,0 +1,111 @@
+{
+  "root": true,
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "plugins": [
+    "react-hooks",
+    "import"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "arrow-body-style": "off",
+    "class-methods-use-this": "off",
+    "comma-dangle": ["error", "only-multiline"],
+    "consistent-return": "off",
+    "curly": ["error", "all"],
+    "import/extensions": ["off", "always"],
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": ["error", { "ignore": ["css/", "js/", "image/"] }],
+    "import/prefer-default-export": "off",
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "linebreak-style": "off",
+    "max-len": ["error", { "code": 120, "ignoreStrings": true, "ignoreTemplateLiterals": true }],
+    "newline-per-chained-call": "warn",
+    "no-alert": "warn",
+    "no-debugger": "warn",
+    "no-mixed-operators": "off",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "no-param-reassign": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-restricted-imports": ["error", {
+      "paths": [{
+        "name": "flux/utils",
+        "importNames": ["ReduceStore"],
+        "message": "Use js/utils/AppReduceStore instead of ReduceStore"
+      }]
+    }],
+    "no-unused-expressions": "off",
+    "no-unused-vars": "warn",
+    "padded-blocks": ["warn", "never"],
+    "prefer-template": "off",
+    "radix": ["error", "as-needed"],
+    "react/display-name": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-max-props-per-line": ["warn", { "maximum": 2 }],
+    "react/jsx-no-target-blank": "warn",
+    "react/no-array-index-key": "off",
+    "react/prop-types": "warn",
+    "react/react-in-jsx-scope": "error",
+    "react/sort-comp": ["warn", {
+      "order": [
+        "propTypes",
+        "defaultProps",
+        "getStores",
+        "calculateState",
+        "static-methods",
+        "lifecycle",
+        "everything-else",
+        "render"
+      ],
+      "groups": {
+        "lifecycle": [
+          "displayName",
+          "contextTypes",
+          "childContextTypes",
+          "mixins",
+          "statics",
+          "constructor",
+          "getDefaultProps",
+          "state",
+          "getInitialState",
+          "getChildContext",
+          "getDerivedStateFromProps",
+          "componentWillMount",
+          "UNSAFE_componentWillMount",
+          "componentDidMount",
+          "componentWillReceiveProps",
+          "UNSAFE_componentWillReceiveProps",
+          "shouldComponentUpdate",
+          "componentWillUpdate",
+          "UNSAFE_componentWillUpdate",
+          "getSnapshotBeforeUpdate",
+          "componentDidUpdate",
+          "componentDidCatch",
+          "componentWillUnmount"
+        ]
+      }
+    }],
+    "react/no-unused-state": "warn",
+    "react/no-did-update-set-state": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-useless-path-segments": ["error", {"noUselessIndex": true}]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": { "paths": ["src/js"] }
+    }
+  },
+  "globals": {
+    "CONSTANTS": true
+  },
+  "reportUnusedDisableDirectives": true
+}

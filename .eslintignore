@@ -1,0 +1,5 @@
+config
+public
+scripts
+test
+gatsby-*.js
