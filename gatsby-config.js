@@ -38,13 +38,6 @@ module.exports = {
         path: `${__dirname}/src/data/articles`,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/data/pages`,
-      },
-    },
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
