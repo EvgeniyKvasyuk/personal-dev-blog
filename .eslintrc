@@ -1,8 +1,7 @@
 {
   "root": true,
   "extends": [
-    "airbnb",
-    "plugin:react/recommended"
+    "airbnb-typescript"
   ],
   "env": {
     "browser": true,
@@ -10,10 +9,14 @@
     "jest": true
   },
   "plugins": [
+    "@typescript-eslint",
     "react-hooks",
     "import"
   ],
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
   "rules": {
     "arrow-body-style": "off",
     "class-methods-use-this": "off",
@@ -35,25 +38,19 @@
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "no-param-reassign": "off",
     "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
-    "no-restricted-imports": ["error", {
-      "paths": [{
-        "name": "flux/utils",
-        "importNames": ["ReduceStore"],
-        "message": "Use js/utils/AppReduceStore instead of ReduceStore"
-      }]
-    }],
     "no-unused-expressions": "off",
-    "no-unused-vars": "warn",
+    "@typescript-eslint/no-unused-vars": "warn",
     "padded-blocks": ["warn", "never"],
     "prefer-template": "off",
     "radix": ["error", "as-needed"],
     "react/display-name": "off",
+    "react/require-default-props": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-max-props-per-line": ["warn", { "maximum": 2 }],
     "react/jsx-no-target-blank": "warn",
     "react/no-array-index-key": "off",
-    "react/prop-types": "warn",
     "react/react-in-jsx-scope": "error",
+    "react/prop-types": "off",
     "react/sort-comp": ["warn", {
       "order": [
         "propTypes",
@@ -101,7 +98,9 @@
   },
   "settings": {
     "import/resolver": {
-      "node": { "paths": ["src/js"] }
+      "node": {
+        "paths": ["node_modules", "./"]
+      }
     }
   },
   "globals": {

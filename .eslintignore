@@ -1,5 +1,5 @@
-config
-public
-scripts
-test
+node_modules
 gatsby-*.js
+graphql-*.ts
+stylelint.config.js
+constants.js
