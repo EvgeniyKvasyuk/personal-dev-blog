@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 
-import { COLORS } from 'src/constants';
+import { COLORS, MIXINS, PADDINGS_AND_MARGINS } from 'src/constants';
 
 import { Header } from '../Header';
 import { Navbar } from '../Navbar';
@@ -18,11 +18,12 @@ type Props = {
   className?: string,
 };
 
-const Layout = styled.div`
+const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-items: flex-start;
   min-height: 100vh;
+  background: ${COLORS.BASE_BACKGROUND};
 `;
 
 const LayoutFooter = styled(Footer)`
@@ -31,6 +32,7 @@ const LayoutFooter = styled(Footer)`
 
 const LayoutHeader = styled(Header)`
   flex: 0;
+  margin-bottom: ${PADDINGS_AND_MARGINS.PADDING_M};
 `;
 
 const Global = createGlobalStyle`
@@ -43,9 +45,13 @@ const Global = createGlobalStyle`
   a:hover {
     color: ${COLORS.ACCENT};
   }
+
+  .deckgo-highlight-code-carbon {
+    ${MIXINS.BOX_SHADOWS}
+  }
 `;
 
-export default ({ children, className }: Props) => {
+export const Layout = ({ children, className }: Props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -57,13 +63,15 @@ export default ({ children, className }: Props) => {
   `);
 
   return (
-    <Layout className={className}>
+    <LayoutWrapper className={className}>
       <Global />
       <LayoutHeader>
         <Navbar />
       </LayoutHeader>
       <Content>{children}</Content>
       <LayoutFooter />
-    </Layout>
+    </LayoutWrapper>
   );
 };
+
+Layout.displayName = 'Layout';

@@ -1,1 +1,1 @@
-export { default as PostPreview } from './PostPreview';
+export { PostPreview } from './PostPreview';

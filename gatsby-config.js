@@ -2,8 +2,8 @@ const path = require('path');
 
 module.exports = {
   siteMetadata: {
-    title: 'Блог разработчика',
-    description: 'Тут я рассказываю о разработке и не только',
+    title: 'Evgenii Kvasiuk`s blog',
+    description: 'I tell here about software development and maybe something other too',
     author: 'Evgenii Kvasiuk (EvgeniyKvasyuk)',
   },
   plugins: [
@@ -88,17 +88,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Kvasiuk`s blog',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
+        display: 'standalone',
         icon: path.join(__dirname, './images/gatsby-icon.png') // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };

@@ -14,7 +14,7 @@ type Props = {
 };
 
 const PostsListItem = styled(PostPreview)`
-  margin-bottom: ${PADDINGS_AND_MARGINS.VERTICAL_BLOCK_PADDING};
+  margin-bottom: ${PADDINGS_AND_MARGINS.PADDING_M};
 `;
 
 const PostsList = ({ data, pageContext }: Props) => {
@@ -26,8 +26,8 @@ const PostsList = ({ data, pageContext }: Props) => {
         ))}
       </div>
       <div>
-        {!!pageContext.nextPagePath && <Link to={pageContext.nextPagePath}>next</Link>}
-        {!!pageContext.previousPagePath && <Link to={pageContext.previousPagePath}>prev</Link>}
+        {!!pageContext.nextPagePath && <Link to={pageContext.nextPagePath}>Назад в будущее</Link>}
+        {!!pageContext.previousPagePath && <Link to={pageContext.previousPagePath}>Вперед в прошлое</Link>}
       </div>
     </Layout>
   );

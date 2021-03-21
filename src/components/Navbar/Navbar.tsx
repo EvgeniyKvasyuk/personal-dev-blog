@@ -6,7 +6,7 @@ type Props = {
   className?: string,
 };
 
-const Navbar = styled.nav`
+const NavbarWrapper = styled.nav`
   display: flex;
   justify-items: center;
 `;
@@ -16,11 +16,13 @@ const NavbarItem = styled(Link)`
   text-decoration: none;
 `;
 
-export default ({ className }: Props) => {
+export const Navbar = ({ className }: Props) => {
   return (
-    <Navbar className={className}>
+    <NavbarWrapper className={className}>
       <NavbarItem to="/about">About</NavbarItem>
       <NavbarItem to="/contacts">Contacts</NavbarItem>
-    </Navbar>
+    </NavbarWrapper>
   );
 };
+
+Navbar.displayName = 'Navbar';

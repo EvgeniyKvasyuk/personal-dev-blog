@@ -32,6 +32,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const posts = postsQueryResults.data.allMarkdownRemark.edges;
 
+  console.log(POSTS_PER_PAGE);
+
   paginate({
     createPage, // The Gatsby `createPage` function
     items: posts, // An array of objects

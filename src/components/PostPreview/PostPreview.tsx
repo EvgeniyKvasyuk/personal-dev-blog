@@ -17,7 +17,7 @@ type Props = {
   className?: string,
 };
 
-const PostPreview = styled.section`
+const PostPreviewWrapper = styled.section`
   display: flex;
   align-items: flex-start;
 
@@ -28,13 +28,13 @@ const PostPreview = styled.section`
 
 const PostPreviewTitle = styled(Link)`
   display: block;
-  margin-bottom: ${PADDINGS_AND_MARGINS.SMALL_VERTICAL_BLOCK_PADDING};
+  margin-bottom: ${PADDINGS_AND_MARGINS.PADDING_S};
   font-size: ${FONT_SIZES.FONT_SIZE_L};
 `;
 
 const PostPreviewDate = styled.time`
   display: block;
-  margin-bottom: ${PADDINGS_AND_MARGINS.SMALL_VERTICAL_BLOCK_PADDING};
+  margin-bottom: ${PADDINGS_AND_MARGINS.PADDING_S};
   color: ${COLORS.PALE};
   font-size: ${FONT_SIZES.FONT_SIZE_S};
 `;
@@ -42,22 +42,23 @@ const PostPreviewDate = styled.time`
 const PostPreviewContent = styled.div``;
 
 const PostPreviewImage = styled(Img)`
+  flex-shrink: 0;
   width: 100%;
   max-width: 10rem;
-  margin-right: ${PADDINGS_AND_MARGINS.HORIZONTAL_BLOCK_PADDING};
+  margin-right: ${PADDINGS_AND_MARGINS.PADDING_M};
 
   @media (max-width: ${RESOLUTIONS.MOBILE_MAX}) {
     max-width: none;
     margin-right: 0;
-    margin-bottom: ${PADDINGS_AND_MARGINS.HORIZONTAL_BLOCK_PADDING};
+    margin-bottom: ${PADDINGS_AND_MARGINS.PADDING_L};
   }
 `;
 
 const PostPreviewDescription = styled.div``;
 
-export default ({ className, post }: Props) => {
+export const PostPreview = ({ className, post }: Props) => {
   return (
-    <PostPreview className={className}>
+    <PostPreviewWrapper className={className}>
       {post.frontmatter?.previewImage?.childImageSharp?.fluid && (
       <PostPreviewImage
         // @ts-ignore
@@ -75,6 +76,8 @@ export default ({ className, post }: Props) => {
           {post.preview}
         </PostPreviewDescription>
       </PostPreviewContent>
-    </PostPreview>
+    </PostPreviewWrapper>
   );
 };
+
+PostPreview.displayName = 'PostPreview';

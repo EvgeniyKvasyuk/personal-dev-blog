@@ -8,20 +8,22 @@ type Props = {
   className?: string,
 };
 
-const Content = styled.div`
+const ContentWrapper = styled.div`
   ${MIXINS.RESPONSIVE_PADDINGS};
   flex: 1;
   box-sizing: border-box;
   width: 100%;
   max-width: ${RESOLUTIONS.DESKTOP_MIN};
   margin: auto;
-  padding: ${PADDINGS_AND_MARGINS.VERTICAL_BLOCK_PADDING} ${PADDINGS_AND_MARGINS.HORIZONTAL_BLOCK_PADDING};
+  padding: ${PADDINGS_AND_MARGINS.PADDING_M} ${PADDINGS_AND_MARGINS.PADDING_XL};
 `;
 
-export default ({ children, className }: Props) => {
+export const Content = ({ children, className }: Props) => {
   return (
-    <Content className={className}>
+    <ContentWrapper className={className}>
       {children}
-    </Content>
+    </ContentWrapper>
   );
 };
+
+Content.displayName = 'Content';

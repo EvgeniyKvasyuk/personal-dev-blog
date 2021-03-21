@@ -15,15 +15,13 @@ type Props = {
   className?: string,
 };
 
-const boxShadowColor = Color(COLORS.ACCENT_PALE).alpha(0.1).string();
-
-const Header = styled.header`
+const HeaderWrapper = styled.header`
   width: 100%;
   overflow-x: hidden;
-  box-shadow: 0 5px 10px 2px ${boxShadowColor};
+  ${MIXINS.BOX_SHADOWS}
 `;
 
-const HeaderWrapper = styled.div`
+const HeaderContent = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -31,7 +29,7 @@ const HeaderWrapper = styled.div`
   box-sizing: border-box;
   max-width: ${RESOLUTIONS.DESKTOP_MIN};
   margin: auto;
-  padding: ${PADDINGS_AND_MARGINS.VERTICAL_BLOCK_PADDING} ${PADDINGS_AND_MARGINS.HORIZONTAL_BLOCK_PADDING};
+  padding: ${PADDINGS_AND_MARGINS.PADDING_M} ${PADDINGS_AND_MARGINS.PADDING_XL};
   ${MIXINS.RESPONSIVE_PADDINGS}
 `;
 
@@ -41,14 +39,15 @@ const HeaderLogo = styled(Link)`
   text-decoration: none;
 `;
 
-export default ({ children, className }: Props) => (
-  <Header className={className}>
-    <HeaderWrapper>
+export const Header = ({ children, className }: Props) => (
+  <HeaderWrapper className={className}>
+    <HeaderContent>
       <HeaderLogo to="/">
         <h1>KVASIUK`S BLOG</h1>
       </HeaderLogo>
       {children}
-    </HeaderWrapper>
-  </Header>
+    </HeaderContent>
+  </HeaderWrapper>
 );
 
+Header.displayName = 'Header';
